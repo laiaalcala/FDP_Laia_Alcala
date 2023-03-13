@@ -15,9 +15,9 @@ data {
 
 parameters {
   // restrict the model to take the choice of
-  vector<lower=0>[no_tf] x[no_tpt]; \\Shared latent transcription factor activities
-  matrix[no_gns, no_tf] b; \\Gene-specific transcription factor interaction network with genes as rows and TFs as columns
-  simplex[no_tf] w; \\Infinite vector of weights. It is a vector with non-negative values whose entries sum to 1
+  vector<lower=0>[no_tf] x[no_tpt]; //Shared latent transcription factor activities
+  matrix[no_gns, no_tf] b; //Gene-specific transcription factor interaction network with genes as rows and TFs as columns
+  simplex[no_tf] w; //Infinite vector of weights. It is a vector with non-negative values whose entries sum to 1
 }
 
 transformed parameters {
