@@ -1,7 +1,7 @@
 # A Bayesian nonparametric integration approach for functional regulatory network inference in haematopoietic development from multi-omics data
 By: Laia Carolina Alcalà
 
-Supervised by: Anas Rana and 
+Supervised by: Anas Rana and Jean-Baptiste Cazier
 
 ESCI-UPF and University of Birmingham (Centre for computational biology)
 
