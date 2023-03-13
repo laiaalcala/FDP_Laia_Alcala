@@ -14,24 +14,21 @@ data {
 }
 
 parameters {
-  // regression coefficient vector
-  // real<lower=0> sigma;
-  // real<lower=0> sigma_x;
   // restrict the model to take the choice of
-  vector<lower=0>[no_tf] x[no_tpt];
-  matrix[no_gns, no_tf] b;
-  simplex[no_tf] w;
+  vector<lower=0>[no_tf] x[no_tpt]; \\Shared latent transcription factor activities
+  matrix[no_gns, no_tf] b; \\Gene-specific transcription factor interaction network with genes as rows and TFs as columns
+  simplex[no_tf] w; \\Infinite vector of weights. It is a vector with non-negative values whose entries sum to 1
 }
 
 transformed parameters {
-  //
-  vector[no_tpt] tmp[no_gns];
-  vector[no_tpt] mu[no_gns];
+  vector[no_tpt] tmp[no_gns]; //Gene-specific latent trajectory
+  vector[no_tpt] mu[no_gns]; //Gene expression time-course measurement
+  //iterate over time points
   for (i_tpt in 1:no_tpt) {
+    //model equations
     tmp[i_tpt] = b * (w .* x[i_tpt]);
     mu[i_tpt] = y0 + a[i_tpt] .* tmp[i_tpt];
   }
-
 }
 
 model {
@@ -42,7 +39,7 @@ model {
       x[i_tpt, i_tf] ~ normal(0, sigma_x)T[0, ]; //Truncated normal distribution prior
     }
   }
-  // to_matrix(x) ~ normal(0, sigma_x)T[0, ];
+ 
   w ~ dirichlet(rep_vector(alpha, no_tf)); //Dirichlet prior
   
   //iterate over TFs
@@ -51,7 +48,7 @@ model {
   }
   
   //LIKELIHOOD
-  // y ~ multi_normal_cholesky(mu, diag_pre_multiply(sigma))
+  //iterate over time points
   for (i_tpt in 1:no_tpt) {
     y[i_tpt] ~ normal(mu[i_tpt], sigma);
   }
