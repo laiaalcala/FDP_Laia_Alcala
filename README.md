@@ -1,4 +1,4 @@
-# A Bayesian nonparametric integration approach for functional regulatory network inference in haematopoietic development from multi-omics data
+# MONET, a Bayesian nonparametric integration approach for functional regulatory network inference in haematopoietic development from multi-omics data
 By: Laia Carolina Alcalà
 
 Supervised by: Anas Rana and Jean-Baptiste Cazier
