@@ -8,21 +8,21 @@ data {
   real<lower=0> sigma_x; //NormalTruncated parameter
   // response variable
   vector[no_gns] y0; //Gene expression vector of genes at time 0
-  vector[no_gns] y[no_tpt]; // response variable
-  vector[no_gns] a[no_tpt]; // masking matrix (e.g. ATACseq)
+  vector[no_gns] y[no_tpt]; // response variable --> (vector of vectors)
+  vector[no_gns] a[no_tpt]; // masking matrix (e.g. ATACseq) -->(vector of vectors)
   real<lower=0> alpha;
 }
 
 parameters {
   // restrict the model to take the choice of
-  vector<lower=0>[no_tf] x[no_tpt]; //Shared latent transcription factor activities
+  vector<lower=0>[no_tf] x[no_tpt]; //Shared latent transcription factor activities --> vector of vectors
   matrix[no_gns, no_tf] b; //Gene-specific transcription factor interaction network with genes as rows and TFs as columns
   simplex[no_tf] w; //Infinite vector of weights. It is a vector with non-negative values whose entries sum to 1
 }
 
 transformed parameters {
-  vector[no_tpt] tmp[no_gns]; //Gene-specific latent trajectory
-  vector[no_tpt] mu[no_gns]; //Gene expression time-course measurement
+  vector[no_tpt] tmp[no_gns]; //Gene-specific latent trajectory --> vector of vectors
+  vector[no_tpt] mu[no_gns]; //Gene expression time-course measurement --> vector of vectors
   //iterate over time points
   for (i_tpt in 1:no_tpt) {
     //model equations
@@ -30,6 +30,8 @@ transformed parameters {
     mu[i_tpt] = y0 + a[i_tpt] .* tmp[i_tpt];
   }
 }
+
+//note: although some of the parameters defined as vectors are matrices, it is easily for the later computations to define them as vectors of vectors and not matrices themselves.
 
 model {
   //PRIORS
