@@ -11,14 +11,16 @@ ESCI-UPF and University of Birmingham (Centre for Computational Biology)
 Information about the repository and folders content.
 
 ## Data:
-It contains some of the data used for the project.
-- Raw
-- Preprocessed
-
-## Figures
-All the figures created by me used in the report
-
-## Results:
+It contains some of the data used for the project (Raw and preprocessed)
 
 ## Scripts
 - Model.stan : Stan implementation of the Bayesian non parametric model
+
+## Figures
+All the figures created by me used in the report
+- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied
+- Model_scheme.png : A visual representation of the model
+
+## Results:
+
+
