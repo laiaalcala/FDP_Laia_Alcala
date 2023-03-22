@@ -19,7 +19,7 @@ It contains some of the data used for the project (Raw and preprocessed)
 ## Figures
 All the figures created by me used in the report
 - Experiment_scheme.png : A visual representation of the experiment on which the model will be applied
-- Model_scheme.png : A visual representation of the model
+- Model_scheme.png : A visual representation of the model structure
 
 ## Results:
 
