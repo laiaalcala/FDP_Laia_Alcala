@@ -15,6 +15,8 @@ It contains some of the data used for the project.
 - Raw
 - Preprocessed
 
+## Figures
+All the figures created by me used in the report
 
 ## Results:
 
