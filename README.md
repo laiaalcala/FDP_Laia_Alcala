@@ -3,7 +3,7 @@ By: Laia Carolina Alcalà
 
 Supervised by: Anas Rana and Jean-Baptiste Cazier
 
-ESCI-UPF and University of Birmingham (Centre for computational biology)
+ESCI-UPF and University of Birmingham (Centre for Computational Biology)
 
 
 # Repository content:
