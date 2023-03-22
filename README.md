@@ -11,7 +11,9 @@ ESCI-UPF and University of Birmingham (Centre for Computational Biology)
 Information about the repository and folders content.
 
 ## Data:
-It contains some of the data used for the project:
+It contains some of the data used for the project.
+- Raw
+- Preprocessed
 
 
 ## Results:
