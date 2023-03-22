@@ -10,6 +10,9 @@ ESCI-UPF and University of Birmingham (Centre for Computational Biology)
 ## Readme:
 Information about the repository and folders content.
 
+## Report
+----
+
 ## Data:
 It contains some of the data used for the project (Raw and preprocessed)
 
@@ -22,5 +25,5 @@ All the figures created by me used in the report
 - Model_scheme.png : A visual representation of the model structure
 
 ## Results:
-
+---
 
