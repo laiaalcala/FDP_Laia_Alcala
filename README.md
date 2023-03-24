@@ -39,7 +39,7 @@ It contains all the preprocessed data in which the model will be applied
 - Model.stan : Stan implementation of the Bayesian non parametric model
 
 ## Figures
-All the figures created by me used in the report
+All the figures created by me used in the report using biorender (https://biorender.com )
 - Experiment_scheme.png : A visual representation of the experiment on which the model will be applied
 - Model_scheme.png : A visual representation of the model structure
 
