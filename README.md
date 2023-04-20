@@ -37,6 +37,7 @@ It contains all the preprocessed data in which the model will be applied
 
 ## Scripts
 - Model.stan : Stan implementation of the Bayesian non parametric model
+- monet-sim-run.R : Data simulation with 1000 genes and 10 TF using the Monet package
 
 ## Figures
 All the figures created by me used in the report using biorender (https://biorender.com )
