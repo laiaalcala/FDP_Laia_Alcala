@@ -37,7 +37,8 @@ It contains all the preprocessed data in which the model will be applied
 
 ## Scripts
 - Model.stan : Stan implementation of the Bayesian non parametric model
-- monet-sim-run.R : Data simulation with 1000 genes and 10 TF using the Monet package
+- Monet-sim: Monet data simulation function
+- monet-sim-run.R : Application of the data simulation function with 1000 genes and 10 TF using the Monet package
 - comparison.R : Statictical analysis and comparison of the processed and simulated datasets 
 
 ## Figures
