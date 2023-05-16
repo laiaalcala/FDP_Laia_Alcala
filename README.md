@@ -40,6 +40,7 @@ It contains all the preprocessed data in which the model will be applied
 - Monet-sim: Monet data simulation function
 - monet-sim-run.R : Application of the data simulation function with 1000 genes and 10 TF using the Monet package
 - comparison.R : Statictical analysis and comparison of the processed and simulated datasets 
+- monet_sim_y0 : Application of the model using the simulated data and the stan fit. y_0 and a_g are taken from the simulated data and b_g_k, x_k, w_k and e_k from the monet fitted model.
 
 ## Figures
 All the figures created by me used in the report using biorender (https://biorender.com )
