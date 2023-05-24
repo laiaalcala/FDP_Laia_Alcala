@@ -39,8 +39,10 @@ It contains all the preprocessed data in which the model will be applied
 - Model.stan : Stan implementation of the Bayesian non parametric model
 - Monet-sim: Monet data simulation function
 - monet-sim-run.R : Application of the data simulation function with 1000 genes and 10 TF using the Monet package
-- comparison.R : Statictical analysis and comparison of the processed and simulated datasets 
-- monet_sim_y0 : Application of the model using the simulated data and the stan fit. y_0 and a_g are taken from the simulated data and b_g_k, x_k, w_k and e_k from the monet fitted model.
+- comparison.R : Statictical analysis and comparison of the processed and simulated dataset
+- Comparison_loop.R:  Statictical analysis and comparison of the processed and thr multiple simulated datasets with different parameters
+- monet_sim_yg : Application of the model using the simulated data and the Stan fit. y_0 and a_g are taken from the simulated data and b_g_k, x_k, w_k and e_k from the monet fitted model.It also contains the computation of the estimated gene expression and the code for the data visualization.
+- monet_simulation-single.R: Fitting of the monet Stan model to the preprocessed (observed data) and data visualization.
 
 ## Figures
 All the figures created by me used in the report using biorender (https://biorender.com )
