@@ -45,8 +45,8 @@ It contains all the preprocessed data in which the model will be applied
 - monet_simulation-single.R: Fitting of the monet Stan model to the preprocessed (observed data) and data visualization.
 
 ## Figures
-All the figures created by me used in the report using biorender (https://biorender.com )
-- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied
+All the figures created by me used in the report. 
+- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied (created with biorender (https://biorender.com).
 - Model_scheme.png : A visual representation of the model structure
 
 ---
