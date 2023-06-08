@@ -46,8 +46,9 @@ It contains all the preprocessed data in which the model will be applied
 
 ## Figures
 All the figures created by me used in the report. 
-- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied (created with biorender (https://biorender.com).
+- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied 
 - Model_scheme.png : A visual representation of the model structure
+- methods_pipeline.png : Methods workflow (created with biorender (https://biorender.com)
 
 ---
 
