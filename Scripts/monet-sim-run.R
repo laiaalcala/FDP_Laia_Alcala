@@ -4,9 +4,9 @@ library(tidyverse); library(monet)
 
 # Create a data frame with the number of genes, TF, iterations, the warmup and alpha variables
 par_df <- expand_grid(
-  "gen" = 1000, # number of genes
-  "tf" = 10, # number of transcription factors
-  "iter" = 6000, # number of iterations
+  "gen" = 2000, # number of genes
+  "tf" = 30, # number of transcription factors
+  "iter" = 8000, # number of iterations
   "wup" = 2000, # warmup iterations
   "alpha" = 1 )
 
