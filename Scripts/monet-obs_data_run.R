@@ -1,15 +1,10 @@
-library(tidyverse)
-library(monet)
+library(tidyverse); library(dplyr)
+library(monet); library(rstan)
 library(stringr)
-library(monet)
-library(stringr)
-library(dplyr)
-library(tidyverse)
 library(ggplot2); library(ggpubr); library(viridis);library(gridExtra)
 library(data.table)
 library(matrixcalc) # for the hardmard product
 library(ComplexHeatmap); library(circlize)
-library(rstan)
 
 no_g <- 1000 # Number of genes we want to work with
 no_tf <- 20 # Number of transcription factors
@@ -102,7 +97,7 @@ wk_matrix_WT <- as.matrix(diag(w_est_WT)) # Dimension: TF (10) x TF (10)
 
 genes_WT <- colnames(bgk_matrix_WT)
 
-#Heatmaps of B and X
+# Heatmaps of B and X
 names(bgk_matrix_WT) <- NULL
 rownames(bgk_matrix_WT) <- seq(1:20)
 col_fun = colorRamp2(c(min(bgk_matrix_WT),min(bgk_matrix_WT) / 10, min(bgk_matrix_WT) / 100, 0,max(bgk_matrix_WT) / 10, max(bgk_matrix_WT) / 100, max(bgk_matrix_WT)),
@@ -130,7 +125,7 @@ pdf("results/plots/Obs_data_plots/wk_PE_WT_20TF_1000g_2.pdf", width=2, height=4)
 ggplot ( w_est_WT_df, aes(as.factor(TF),w_est_WT)) +geom_bar(stat = "identity", fill="lightsalmon") +ylim(c(0, 0.5)) +labs ( y= "DP weight", x="TF")+ theme_classic()+coord_flip()
 dev.off()
 
-#yg computation
+# yg computation
 rnaseq_WT <- monet_data@gene_exp$E14_flk_fpkm #y0
 atacseq_WT <- as.data.frame(monet_data@atac_seq)
 atacseq_WT <- atacseq_WT[atacseq_WT$gene %in% genes_WT,]
@@ -163,8 +158,6 @@ save(monet_data, optim_out_Sp1hyp,
 load(stringr::str_c(here::here("results/tables/obs_laia_1000/single-optim_"),
                     no_g, "_", no_tf, "-", de_b, "-", alpha,"-", gn_type,"-", SD, ".Rdata"))
 
-# monet_optim <- new("monetOptim", optim_out, monet_data)
-# save(monet_optim, file = here::here("results/local/data-res-Sp1hyp.Rdata"))
 load("~/cazierj-msc-bioinf-dl/laia-data/single-optim_1000_10-2-1-Sp1hyp.Rdata")
 
 # MCMC
@@ -244,7 +237,7 @@ pdf("results/plots/Obs_data_plots/wk_PE_SP1_20TF_1000g_2.pdf", width=2, height=4
 ggplot ( w_est_SP1_df, aes(as.factor(TF),w_est_SP1)) +geom_bar(stat = "identity", fill="lightsalmon") +ylim(c(0, 0.5)) +labs ( y= "DP weight", x="TF")+ theme_classic()+coord_flip()
 dev.off()
 
-#yg computation
+# yg computation
 rnaseq_SP1 <- monet_data@gene_exp$Sp1hyp_Flk_fpkm #y0
 atacseq_SP1 <- as.data.frame(monet_data@atac_seq)
 atacseq_SP1 <- atacseq_SP1[atacseq_SP1$gene %in% genes_SP1,]
@@ -282,7 +275,7 @@ names(yg_key_SP1)<- c("ES","HB","HE1","HE2","HP","Gene", "Data")
 
 yg_key<- rbind(yg_key_WT, yg_key_SP1)
 
-#Put the data in long format
+# Put the data in long format
 yg_key_long <- yg_key %>% pivot_longer(cols=c("ES","HB","HE1","HE2","HP"), names_to='Time_point',values_to='Expression') 
 
 pdf("results/plots/Obs_data_plots/key_trajectories.pdf",width = 8) 
@@ -290,8 +283,7 @@ ggplot(yg_key_long, aes(x=Time_point, y= Expression, color=Data, group=Data))+ g
   geom_point()+theme_minimal()  + labs(title = "Gene expression trajectories in hematopoiesis", y = "Expression", x = "Time point")+ scale_x_discrete(limits=c("ES","HB","HE1","HE2","HP")) + facet_wrap(~Gene, ncol=2)+scale_color_manual(values=c("#54CE46", "#A749D5"))
 dev.off()
 
-## difference x heatmaps
-
+##### Difference x_k heatmaps
 x_dif_0.5 <- x_df_WT - x_df_SP1
 
 pdf("results/plots/Obs_data_plots/xk_PE_0.5_dif.pdf", width=3, height=6 )
@@ -300,7 +292,6 @@ col_fun = colorRamp2(c(min(x_dif_0.5), 0, max(x_dif_0.5)),
 h_xk <- Heatmap(as.matrix(x_dif_0.5), name="TF interaction difference",cluster_rows = FALSE,cluster_columns  = FALSE, row_title= "TF" ,show_row_dend = FALSE, show_column_dend = FALSE, row_names_side = "left",col=col_fun,heatmap_legend_param = list(legend_direction = "horizontal",labels_gp = gpar(fontsize = 12)))
 draw(h_xk, heatmap_legend_side = "bottom")
 dev.off()
-
 
 x_dif_2 <- x_df_WT - x_df_SP1
 pdf("results/plots/Obs_data_plots/xk_PE_2_dif.pdf", width=3, height=6 )
