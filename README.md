@@ -44,13 +44,5 @@ It contains all the preprocessed data in which the model will be applied
 - monet-obs_data_run.R: Model fitting to the preprocessed (observed data), exctraction of the estimated parameters data visualization.
 
 ## Figures
-It contains all the figures created by me used in the report (created with biorender https://biorender.com) and all the plots obtained.
-- Experiment_scheme.png : A visual representation of the experiment on which the model will be applied 
-- Model_scheme.png : A visual representation of the model structure
-- methods_pipeline.png : Methods workflow 
-
+It contains all the figures created by me used in the report and plots used in the scientific report.
 -
-
-
----
-
