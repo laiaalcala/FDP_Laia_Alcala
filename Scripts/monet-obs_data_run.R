@@ -113,12 +113,12 @@ h_bgk <- Heatmap(bgk_matrix_WT, name="Gene expression",col=col_fun, cluster_rows
 draw(h_bgk, heatmap_legend_side = "bottom")
 dev.off()
 
-x_df <- as.data.frame(xk_matrix_WT)
-names(x_df) <- c("1","2","3","4")
-rownames(x_df) <- seq(1:20)
+x_df_WT <- as.data.frame(xk_matrix_WT)
+names(x_df_WT) <- c("1","2","3","4")
+rownames(x_df_WT) <- seq(1:20)
 
 pdf("results/plots/Obs_data_plots/xk_PE_WT_20TF_1000g_2.pdf", width=3, height=6 )
-h_xk <- Heatmap(as.matrix(x_df), name="WT TF interaction",cluster_rows = FALSE,cluster_columns  = FALSE, row_title= "TF" ,show_row_dend = FALSE, show_column_dend = FALSE, row_names_side = "left",col=c("purple", "white"),heatmap_legend_param = list(legend_direction = "horizontal",labels_gp = gpar(fontsize = 12)))
+h_xk <- Heatmap(as.matrix(x_df_WT), name="WT TF interaction",cluster_rows = FALSE,cluster_columns  = FALSE, row_title= "TF" ,show_row_dend = FALSE, show_column_dend = FALSE, row_names_side = "left",col=c("purple", "white"),heatmap_legend_param = list(legend_direction = "horizontal",labels_gp = gpar(fontsize = 12)))
 draw(h_xk, heatmap_legend_side = "bottom")
 dev.off()
 
@@ -290,3 +290,22 @@ ggplot(yg_key_long, aes(x=Time_point, y= Expression, color=Data, group=Data))+ g
   geom_point()+theme_minimal()  + labs(title = "Gene expression trajectories in hematopoiesis", y = "Expression", x = "Time point")+ scale_x_discrete(limits=c("ES","HB","HE1","HE2","HP")) + facet_wrap(~Gene, ncol=2)+scale_color_manual(values=c("#54CE46", "#A749D5"))
 dev.off()
 
+## difference x heatmaps
+
+x_dif_0.5 <- x_df_WT - x_df_SP1
+
+pdf("results/plots/Obs_data_plots/xk_PE_0.5_dif.pdf", width=3, height=6 )
+col_fun = colorRamp2(c(min(x_dif_0.5), 0, max(x_dif_0.5)),
+                     c( "red", "yellow","green"))
+h_xk <- Heatmap(as.matrix(x_dif_0.5), name="TF interaction difference",cluster_rows = FALSE,cluster_columns  = FALSE, row_title= "TF" ,show_row_dend = FALSE, show_column_dend = FALSE, row_names_side = "left",col=col_fun,heatmap_legend_param = list(legend_direction = "horizontal",labels_gp = gpar(fontsize = 12)))
+draw(h_xk, heatmap_legend_side = "bottom")
+dev.off()
+
+
+x_dif_2 <- x_df_WT - x_df_SP1
+pdf("results/plots/Obs_data_plots/xk_PE_2_dif.pdf", width=3, height=6 )
+col_fun = colorRamp2(c(min(x_dif_2), 0, max(x_dif_2)),
+                     c( "red", "yellow","green"))
+h_xk <- Heatmap(as.matrix(x_dif_2), name="TF interaction difference",cluster_rows = FALSE,cluster_columns  = FALSE, row_title= "TF" ,show_row_dend = FALSE, show_column_dend = FALSE, row_names_side = "left",col=col_fun,heatmap_legend_param = list(legend_direction = "horizontal",labels_gp = gpar(fontsize = 12)))
+draw(h_xk, heatmap_legend_side = "bottom")
+dev.off()
