@@ -38,17 +38,19 @@ It contains all the preprocessed data in which the model will be applied
 ## Scripts
 - Model.stan : Stan implementation of the Bayesian non parametric model
 - Monet-sim: Monet data simulation function
-- monet-sim-run.R : Data simulation with 2000 genes and 30 TF using the Monet package and Stan model fitting to this data.
+- monet-sim-run.R : Data simulation with 2000 genes and 30 TF using the Monet package and model fitting to this data.
 - comparison.R : Statictical analysis and comparison of the processed and simulated dataset
-- Comparison_loop.R:  Statictical analysis and comparison of the processed and thr multiple simulated datasets with different parameters
-- monet_sim_yg : Computation of the estimated gene expression (yg) of the simulated data and data visualization. y0 and ag are taken from the simulated data and bgk, xk, wk and ek from the point estimates of the monet fitted model.
-- monet_simulation-single-run.R: Applicatio of the model to the preprocessed (observed data), computation of the estimated gene expression and data visualization.
+- monet_sim_yg : Exctraction of the estimated parameters of the simulated data, computation of the estimated gene expression (yg) of the simulated data and data visualization. y0 and ag are taken from the simulated data and bgk, xk, wk and ek from the point estimates of the monet fitted model.
+- monet-obs_data_run.R: Model fitting to the preprocessed (observed data), exctraction of the estimated parameters data visualization.
 
 ## Figures
-All the figures created by me used in the report. 
+It contains all the figures created by me used in the report (created with biorender https://biorender.com) and all the plots obtained.
 - Experiment_scheme.png : A visual representation of the experiment on which the model will be applied 
 - Model_scheme.png : A visual representation of the model structure
-- methods_pipeline.png : Methods workflow (created with biorender (https://biorender.com)
+- methods_pipeline.png : Methods workflow 
+
+-
+
 
 ---
 
